@@ -1,0 +1,20 @@
+{
+  "name": "sws-store",
+  "version": "1.0.0",
+  "description": "StarWars Ships store ( training project for teach Vuex ).",
+
+  "private": true,
+  "main": "index.js",
+  "repository": "https://github.com/KaimNotark/sws-store.git",
+  
+  "author": {
+    "name": "KaimNotark",
+    "email": "KaimNotark@yandex.ru"
+  },
+  "keywords": [],
+  "license": "MIT",
+
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
