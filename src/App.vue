@@ -8,12 +8,15 @@
   https://github.com/imcvampire/vue-axios
   пока не ясно, стоит ее юзать или нет
  -->
-  <div id="app">
+  <div id="app" class="app">
+    <div class="wrapper">
+    
     <img alt="StarWars Ship logo" src="../public/images/ship-logo.png" />
 
     <CoinDesk />
 
     <OneShip />
+    </div>
   </div>
 </template>
 
@@ -41,5 +44,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.wrapper {
+  max-width: 1100px;
 }
 </style>
