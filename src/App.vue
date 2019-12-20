@@ -1,18 +1,34 @@
 <template>
+<!-- 
+  как работать с запросами на API use axios
+  https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
+  https://github.com/axios/axios
+
+  вот еще такая есть штука:
+  https://github.com/imcvampire/vue-axios
+  пока не ясно, стоит ее юзать или нет
+ -->
   <div id="app">
     <img alt="StarWars Ship logo" src="../public/images/ship-logo.png" />
     <button type="button" class="btn btn-primary">Request: "https://swapi.co/api/starships/9/"</button>
+
+    <CoinDesk />
   </div>
 </template>
 
 <script>
+import CoinDesk from "./components/CoinDesk.vue";
+
 export default {
   name: "app",
-  components: {}
+  components: {
+    CoinDesk
+  }
 };
 </script>
 
 <style lang="scss" scoped>
+@import "./stylesheets/resets.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 #app {
