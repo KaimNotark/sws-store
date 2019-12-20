@@ -1,24 +1,22 @@
 <template>
   <div id="app">
-    <img alt="StarWars Ship logo" src="../public/images/ship-logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="StarWars Ship logo" src="../public/images/ship-logo.png" />
+    <button type="button" class="btn btn-primary">Request: "https://swapi.co/api/starships/9/"</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+  name: "app",
+  components: {}
+};
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

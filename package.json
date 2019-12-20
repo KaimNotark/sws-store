@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "landing page deab",
   "private": true,
-
   "keywords": [],
   "author": {
     "name": "KaimNotark",
@@ -11,13 +10,13 @@
   },
   "license": "ISC",
   "homepage": "",
-
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "core-js": "^3.4.3",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.10"
