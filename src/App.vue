@@ -1,28 +1,52 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<!-- 
+  как работать с запросами на API use axios
+  https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
+  https://github.com/axios/axios
+
+  вот еще такая есть штука:
+  https://github.com/imcvampire/vue-axios
+  пока не ясно, стоит ее юзать или нет
+ -->
+  <div id="app" class="app">
+    <div class="wrapper">
+    
+    <img alt="StarWars Ship logo" src="../public/images/ship-logo.png" />
+
+    <CoinDesk />
+
+    <OneShip />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CoinDesk from "./components/CoinDesk.vue";
+import OneShip from "./components/OneShip.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    CoinDesk,
+    OneShip
   }
-}
+};
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "./stylesheets/resets.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.wrapper {
+  max-width: 1100px;
 }
 </style>
