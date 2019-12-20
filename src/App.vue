@@ -10,19 +10,22 @@
  -->
   <div id="app">
     <img alt="StarWars Ship logo" src="../public/images/ship-logo.png" />
-    <button type="button" class="btn btn-primary">Request: "https://swapi.co/api/starships/9/"</button>
 
     <CoinDesk />
+
+    <OneShip />
   </div>
 </template>
 
 <script>
 import CoinDesk from "./components/CoinDesk.vue";
+import OneShip from "./components/OneShip.vue";
 
 export default {
   name: "app",
   components: {
-    CoinDesk
+    CoinDesk,
+    OneShip
   }
 };
 </script>

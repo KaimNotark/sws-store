@@ -1,4 +1,9 @@
 <template>
+<!-- 
+  В этом компоненте я разбирался как делать запросы API.
+  Он создан на основе примера взятого из руководства по Vue.
+  https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
+ -->
   <div class="container-coin-desk">
     <p class="content _indigo" v-html="this.info"></p>
     <p class="content _orange">{{ this.value }}</p>
@@ -38,6 +43,7 @@ export default {
 .container-coin-desk {
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .content {
