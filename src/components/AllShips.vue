@@ -1,12 +1,11 @@
 <template>
   <div class="container-all-ships">
-    <button
-      type="button"
-      class="btn btn-primary"
+    <b-button
       @click="showAllShips"
-    >Show all ships</button>
-
-    
+      variant="outline-primary"
+      class="button-show-all-ships"
+    >Show all ships</b-button>
+    <p>{{ info }}</p>
   </div>
 </template>
 
@@ -19,18 +18,14 @@ export default {
   data() {
     return {
       info: null
-
     };
   },
 
   methods: {
-    doRequest() {
-      axios.get("https://swapi.co/api/starships/9/").then(
-        response => (
-          (this.info = response)
-
-        )
-      );
+    showAllShips() {
+      axios
+        .get("https://swapi.co/api/starships/9/")
+        .then(response => (this.info = response));
       console.log("Button SHOW ALL SHIPS pressed.");
     }
   }
@@ -38,11 +33,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .container-all-ships {
   display: flex;
-  flex-direction: column;
-  margin-top: 30px;
+  justify-content: space-around;
 }
 
+.button-show-all-ships {
+  width: 300px;
+}
 </style>

@@ -35,8 +35,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./stylesheets/resets.scss";
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

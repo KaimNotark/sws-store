@@ -34,13 +34,13 @@ export default {
   methods: {
     doRequest() {
       axios.get("https://swapi.co/api/starships/9/").then(
-        response => (
+        response => {
           (this.info = response),
           (this.name = response.data.name),
           (this.cost = response.data.cost_in_credits),
           (this.hyperdrive = response.data.hyperdrive_rating),
           (this.rank = response.data.starship_rank)
-        )
+        }
       );
       console.log("Button REQUEST pressed.");
     }
@@ -65,10 +65,10 @@ export default {
 }
 
 ._pink {
-  color: pink;
+  color: #e83e8c;
 }
 
 ._green {
-  color: green;
+  color: #28a745;
 }
 </style>
