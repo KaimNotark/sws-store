@@ -7,6 +7,8 @@
     >Show all ships</b-button>
     <!-- <p>{{ info }}</p> -->
 
+    <div v-for="starship in starships" :key="starship.id">{{ starship.name }}</div>
+
     <div class="cards-container">
       <b-card
         class="cards-card"
@@ -18,15 +20,15 @@
         <b-card-text class="cards-content">
           <p>
             <span class="_italic">Цена:</span>
-            <span class="_green"> {{ starship.cost_in_credits }} </span>
+            <span class="_green">{{ starship.cost_in_credits }}</span>
           </p>
           <p>
             <span class="_italic">Класс двигателя:</span>
-            <span class="_green"> {{ starship.hyperdrive_rating }} </span>
+            <span class="_green">{{ starship.hyperdrive_rating }}</span>
           </p>
           <p>
             <span class="_italic">Класс судна:</span>
-            <span class="_green"> {{ starship.starship_class }} </span>
+            <span class="_green">{{ starship.starship_class }}</span>
           </p>
         </b-card-text>
       </b-card>
@@ -35,8 +37,12 @@
 </template>
 
 <script>
+// ?format=json
 import axios from "axios";
-const url = "https://swapi.co/api/starships/?format=json";
+const url1 = "https://swapi.co/api/starships/?page=1&format=json";
+const url2 = "https://swapi.co/api/starships/?page=2&format=json";
+// const url3 = "https://swapi.co/api/starships/?page=3&format=json";
+// const url4 = "https://swapi.co/api/starships/?page=4&format=json";
 
 export default {
   name: "AllShips",
@@ -44,16 +50,47 @@ export default {
   data() {
     return {
       // info: null,
+
       starships: []
     };
   },
 
   methods: {
     showAllShips() {
-      axios.get(url).then(response => {
-        this.starships = response.data.results;
-        console.log("Button SHOW ALL SHIPS pressed.");
-      });
+      console.log("Button SHOW ALL SHIPS pressed.");
+
+      axios
+        .get(url1)
+        .then(response => {
+          this.starships = response.data.results;
+          console.log("url1 --- " + this.starships);
+
+          axios
+            .get(url2)
+            .then(response => {
+              this.starships = this.starships.concat(response.data.results);
+              // this.starships = this.starships +","+ response.data.results;
+              console.log("url2 --- " + this.starships);
+            })
+            .catch(error => console.log(error));
+        })
+        .catch(error => console.log(error));
+
+      // axios
+      //   .get(url3)
+      //   .then(response => {
+      //     this.starships = this.starships + response.data.results;
+      //     console.log("url3");
+      //   })
+      //   .catch(error => console.log(error));
+
+      // axios
+      //   .get(url4)
+      //   .then(response => {
+      //     this.starships = this.starships + response.data.results;
+      //     console.log("url4");
+      //   })
+      //   .catch(error => console.log(error));
     }
   }
 };
