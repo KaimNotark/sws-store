@@ -1,36 +1,36 @@
 <template>
-  <div class="container-all-ships">
+  <div class="all-ships-container">
     <b-button
       @click="showAllShips"
       variant="outline-primary"
-      class="button-show-all-ships"
+      class="all-ships-button-show"
     >Show all ships</b-button>
-    <p>{{ info }}</p>
+    <!-- <p>{{ info }}</p> -->
 
-    <main>
-      <div class="row">
-        <div class="medium-4 columns" v-for="starship in starships" :key="starship.id">
-          <div class="card">
-            <div class="card-divider text-center">{{starship.name}}</div>
-            <div class="card-section">
-              <p>
-                <em>Цена:</em>
-                {{starship.cost_in_credits}}
-              </p>
-              <p>
-                <em>Класс двигателя:</em>
-                {{starship.hyperdrive_rating}}
-              </p>
-              <p>
-                <em>Класс судна:</em>
-                {{starship.starship_rank}}
-              </p>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+    <div class="cards-container">
+      <b-card
+        class="cards-card"
+        border-variant="dark"
+        :header="starship.name"
+        v-for="starship in starships"
+        :key="starship.id"
+      >
+        <b-card-text class="cards-content">
+          <p>
+            <span class="_italic">Цена:</span>
+            <span class="_green"> {{ starship.cost_in_credits }} </span>
+          </p>
+          <p>
+            <span class="_italic">Класс двигателя:</span>
+            <span class="_green"> {{ starship.hyperdrive_rating }} </span>
+          </p>
+          <p>
+            <span class="_italic">Класс судна:</span>
+            <span class="_green"> {{ starship.starship_class }} </span>
+          </p>
+        </b-card-text>
+      </b-card>
+    </div>
   </div>
 </template>
 
@@ -43,42 +43,48 @@ export default {
 
   data() {
     return {
-      info: null,
+      // info: null,
       starships: []
     };
   },
 
   methods: {
-    // loadPeople() {
     showAllShips() {
       axios.get(url).then(response => {
         this.starships = response.data.results;
         console.log("Button SHOW ALL SHIPS pressed.");
       });
     }
-
-    // showAllShips() {
-    //   axios
-    //     .get("https://swapi.co/api/starships/9/")
-    //     .then(response => (this.info = response));
-    //   console.log("Button SHOW ALL SHIPS pressed.");
-    // }
   }
-
-  // mounted() {
-  // When the Component is ready fetch the JSON from the Server Backend
-  // this.loadPeople();
-  // }
 };
 </script>
 
 <style lang="scss" scoped>
-.container-all-ships {
-  display: flex;
-  justify-content: space-around;
+.all-ships-container {
 }
 
-.button-show-all-ships {
+.all-ships-button-show {
   width: 300px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-card {
+  margin: 10px;
+  font-weight: bold;
+}
+
+.cards-content {
+  font-weight: normal;
+}
+
+._italic {
+  font-style: italic;
+}
+._green {
+  color: green;
 }
 </style>
