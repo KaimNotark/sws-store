@@ -13,7 +13,7 @@
     
     <img alt="StarWars Ship logo" src="/images/ship-logo.png" />
 
-    <OneShip />
+    <!-- <OneShip /> -->
 
     <AllShips />
     </div>
@@ -21,14 +21,14 @@
 </template>
 
 <script>
-import OneShip from "./components/OneShip.vue";
+// import OneShip from "./components/OneShip.vue";
 import AllShips from "./components/AllShips.vue";
 
 export default {
   name: "app",
 
   components: {
-    OneShip,
+    // OneShip,
     AllShips
   }
 };

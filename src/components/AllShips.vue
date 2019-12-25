@@ -5,9 +5,6 @@
       variant="outline-primary"
       class="all-ships-button-show"
     >Show all ships</b-button>
-    <!-- <p>{{ info }}</p> -->
-
-    <div v-for="starship in starships" :key="starship.id">{{ starship.name }}</div>
 
     <div class="cards-container">
       <b-card
@@ -37,60 +34,30 @@
 </template>
 
 <script>
-// ?format=json
 import axios from "axios";
-const url1 = "https://swapi.co/api/starships/?page=1&format=json";
-const url2 = "https://swapi.co/api/starships/?page=2&format=json";
-// const url3 = "https://swapi.co/api/starships/?page=3&format=json";
-// const url4 = "https://swapi.co/api/starships/?page=4&format=json";
 
 export default {
   name: "AllShips",
 
   data() {
     return {
-      // info: null,
+      url: "https://swapi.co/api/starships/?page=1&format=json",
 
       starships: []
     };
   },
 
   methods: {
-    showAllShips() {
-      console.log("Button SHOW ALL SHIPS pressed.");
-
-      axios
-        .get(url1)
-        .then(response => {
-          this.starships = response.data.results;
-          console.log("url1 --- " + this.starships);
-
-          axios
-            .get(url2)
-            .then(response => {
-              this.starships = this.starships.concat(response.data.results);
-              // this.starships = this.starships +","+ response.data.results;
-              console.log("url2 --- " + this.starships);
-            })
-            .catch(error => console.log(error));
-        })
-        .catch(error => console.log(error));
-
-      // axios
-      //   .get(url3)
-      //   .then(response => {
-      //     this.starships = this.starships + response.data.results;
-      //     console.log("url3");
-      //   })
-      //   .catch(error => console.log(error));
-
-      // axios
-      //   .get(url4)
-      //   .then(response => {
-      //     this.starships = this.starships + response.data.results;
-      //     console.log("url4");
-      //   })
-      //   .catch(error => console.log(error));
+    async showAllShips() {
+      while (this.url != null) {
+        await axios
+          .get(this.url)
+          .then(response => {
+            this.url = response.data.next;
+            this.starships = this.starships.concat(response.data.results);
+          })
+          .catch(error => console.log(error));
+      }
     }
   }
 };
@@ -98,6 +65,7 @@ export default {
 
 <style lang="scss" scoped>
 .all-ships-container {
+  margin-top: 30px;
 }
 
 .all-ships-button-show {
