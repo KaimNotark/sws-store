@@ -6,36 +6,35 @@
 
   вот еще такая есть штука:
   https://github.com/imcvampire/vue-axios
-  пока не ясно, стоит ее юзать или нет
+  но Алексей сказал, что её юзать не стоит.
  -->
   <div id="app" class="app">
     <div class="wrapper">
     
-    <img alt="StarWars Ship logo" src="../public/images/ship-logo.png" />
+    <img alt="StarWars Ship logo" src="/images/ship-logo.png" />
 
-    <CoinDesk />
+    <!-- <OneShip /> -->
 
-    <OneShip />
+    <AllShips />
     </div>
   </div>
 </template>
 
 <script>
-import CoinDesk from "./components/CoinDesk.vue";
-import OneShip from "./components/OneShip.vue";
+// import OneShip from "./components/OneShip.vue";
+import AllShips from "./components/AllShips.vue";
 
 export default {
   name: "app",
+
   components: {
-    CoinDesk,
-    OneShip
+    // OneShip,
+    AllShips
   }
 };
 </script>
 
 <style lang="scss" scoped>
-@import "./stylesheets/resets.scss";
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

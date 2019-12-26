@@ -6,11 +6,11 @@
       @click="doRequest"
     >Request: "https://swapi.co/api/starships/9/"</button>
     <div class="container-coin">
-      <p class="content _pink" v-html="this.info"></p>
-      <p class="content _green">Название: {{ this.name }}</p>
-      <p class="content _green">Цена: {{ this.cost }}</p>
-      <p class="content _green">Класс двигателя: {{ this.hyperdrive }}</p>
-      <p class="content _green">Класс судна: {{ this.class }}</p>
+      <p class="content _pink" v-html="info"></p>
+      <p class="content _green">Название: {{ name }}</p>
+      <p class="content _green">Цена: {{ cost }}</p>
+      <p class="content _green">Класс двигателя: {{ hyperdrive }}</p>
+      <p class="content _green">Класс судна: {{ rank }}</p>
     </div>
   </div>
 </template>
@@ -27,20 +27,20 @@ export default {
       name: "Не известно.",
       cost: 0,
       hyperdrive: "Не известно.",
-      class: "Не известно."
+      rank: "Не известно."
     };
   },
 
   methods: {
-    doRequest: function() {
+    doRequest() {
       axios.get("https://swapi.co/api/starships/9/").then(
-        response => (
+        response => {
           (this.info = response),
           (this.name = response.data.name),
           (this.cost = response.data.cost_in_credits),
           (this.hyperdrive = response.data.hyperdrive_rating),
-          (this.class = response.data.starship_class)
-        )
+          (this.rank = response.data.starship_rank)
+        }
       );
       console.log("Button REQUEST pressed.");
     }
@@ -49,8 +49,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../stylesheets/resets.scss";
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.container-one-ship {
+  margin-top: 50px;
+}
 
 .container-coin {
   display: flex;
@@ -63,10 +65,10 @@ export default {
 }
 
 ._pink {
-  color: $pink;
+  color: #e83e8c;
 }
 
 ._green {
-  color: $green;
+  color: #28a745;
 }
 </style>
