@@ -15,14 +15,16 @@
       <!-- <OneShip /> -->
       <Parallax />
       <AllShips />
+      <Liquid />
     </div>
   </div>
 </template>
 
 <script>
 // import OneShip from "./components/OneShip.vue";
-import Parallax from "./components/Parallax.vue"
+import Parallax from "./components/Parallax.vue";
 import AllShips from "./components/AllShips.vue";
+import Liquid from "./components/LiquidBtn.vue";
 
 export default {
   name: "app",
@@ -30,7 +32,8 @@ export default {
   components: {
     // OneShip,
     Parallax,
-    AllShips
+    AllShips,
+    Liquid
   }
 };
 </script>
