@@ -58,7 +58,7 @@ a .liquid::before {
   animation: animate 5s linear infinite;
 }
 a .liquid::after {
-  border-radius: 45%;
+  border-radius: 40%;
   background: rgba(20, 20, 20, .5);
   animation: animate 10s linear infinite;
 }

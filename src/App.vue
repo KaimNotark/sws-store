@@ -16,6 +16,7 @@
       <Parallax />
       <AllShips />
       <Liquid />
+      <Accordion />
     </div>
   </div>
 </template>
@@ -25,6 +26,7 @@
 import Parallax from "./components/Parallax.vue";
 import AllShips from "./components/AllShips.vue";
 import Liquid from "./components/LiquidBtn.vue";
+import Accordion from "./components/Accordion.vue";
 
 export default {
   name: "app",
@@ -33,7 +35,8 @@ export default {
     // OneShip,
     Parallax,
     AllShips,
-    Liquid
+    Liquid,
+    Accordion
   }
 };
 </script>
